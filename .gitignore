@@ -3,3 +3,7 @@ datasets/
 experiments/
 .DS_Store
 .idea/
+*.otf
+*.ttf
+/image_dir
+/binary_dir
