@@ -80,7 +80,7 @@ python font2img.py --src_font=src.ttf
                    --dst_font=tgt.otf
                    --charset=CN 
                    --sample_count=1000
-                   --sample_dir=dir
+                   --sample_dir=sample_dir
                    --label=0
                    --filter=1
                    --shuffle=1
@@ -90,9 +90,9 @@ Four default charsets are offered: CN, CN_T(traditional), JP, KR. You can also p
 After obtaining all images, run **package.py** to pickle the images and their corresponding labels into binary format:
 
 ```sh
-python package.py --dir=image_directories
-                  --save_dir=binary_save_directory
-                  --split_ratio=[0,1]
+python package.py --dir=sample_dir
+                  --save_dir=binary_dir
+                  --split_ratio=0.1
 ```
 
 After running this, you will find two objects **train.obj** and **val.obj** under the save_dir for training and validation, respectively.
