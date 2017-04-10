@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
-from __future__ import absolute_import
+
+
 
 import tensorflow as tf
 import numpy as np
@@ -409,7 +409,7 @@ class UNet(object):
                 return True
             return False
 
-        embedding_vars = filter(filter_embedding_vars, tf.trainable_variables())
+        embedding_vars = list(filter(filter_embedding_vars, tf.trainable_variables()))
         # here comes the hack, we overwrite the original tensor
         # with interpolated ones. Note, the shape might differ
 

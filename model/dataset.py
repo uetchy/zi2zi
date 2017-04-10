@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-from __future__ import print_function
-from __future__ import absolute_import
-import cPickle as pickle
+
+
+import pickle as pickle
 import numpy as np
 import random
 import os
@@ -80,8 +80,8 @@ class TrainDataProvider(object):
         self.val = PickledImageProvider(os.path.join(self.data_dir, val_name))
         if self.filter_by:
             print("filter by label ->", filter_by)
-            self.train.examples = filter(lambda e: e[0] in self.filter_by, self.train.examples)
-            self.val.examples = filter(lambda e: e[0] in self.filter_by, self.val.examples)
+            self.train.examples = [e for e in self.train.examples if e[0] in self.filter_by]
+            self.val.examples = [e for e in self.val.examples if e[0] in self.filter_by]
         print("train examples -> %d, val examples -> %d" % (len(self.train.examples), len(self.val.examples)))
 
     def get_train_iter(self, batch_size, shuffle=True):
